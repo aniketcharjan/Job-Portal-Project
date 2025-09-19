@@ -1,0 +1,37 @@
+# Application Configuration
+server:
+  port: 8080
+
+spring:
+  # Application name
+  application:
+    name: job-portal-backend
+    
+  # MongoDB Configuration
+  data:
+    mongodb:
+      # MongoDB connection string - replace with your MongoDB URL
+      uri: mongodb://localhost:27017/
+      # Database name
+      database: jobportal2
+      
+  # Security Configuration
+  security:
+    # JWT secret key - in production, use environment variable
+    jwt:
+      secret: mySecretKey12345678901234567890123456789012345678901234567890
+      expiration: 86400000 # 24 hours in milliseconds
+
+# Logging Configuration
+logging:
+  level:
+    com.jobportal: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.data.mongodb: DEBUG
+    
+# CORS Configuration
+cors:
+  allowed-origins: http://localhost:3000
+  allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+  allowed-headers: "*"
+  allow-credentials: true
